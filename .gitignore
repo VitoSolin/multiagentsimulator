@@ -1,0 +1,38 @@
+# Large datasets (too big for Git)
+train.csv
+test.csv
+*.csv
+
+# Large model files
+*.cbm
+*_dump.txt
+sampleSubmission.csv
+
+# Data files over 100MB
+**/ctr_cb_dump.txt
+**/ctr_cb.cbm
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model artifacts (keep smaller ones)
+# Uncomment if you want to ignore all model files
+# *.txt
+# *.parquet 

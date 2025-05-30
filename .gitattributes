@@ -1,0 +1,20 @@
+# Prevent line ending conversion for model files
+*.txt binary
+*.tsv binary
+*.parquet binary
+*.model binary
+*.pkl binary
+*.joblib binary
+
+# For Python files, use LF
+*.py text eol=lf
+*.pyx text eol=lf
+
+# For config files
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+
+# For documentation
+*.md text eol=lf
+*.rst text eol=lf 

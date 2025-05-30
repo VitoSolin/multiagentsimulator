@@ -1,0 +1,306 @@
+# Multi-Agent E-commerce Retargeting Simulator Configuration
+# ==========================================================
+
+# Project Information
+project:
+  name: "Multi-Agent Retargeting Simulator"
+  version: "1.0.0"
+  description: "AI-powered multi-agent system for e-commerce retargeting optimization"
+  author: "Your Team"
+
+# Environment Configuration
+environment:
+  # Basic settings
+  num_agents: 4
+  max_customers: 10000
+  episode_length: 20000
+  
+  # Data settings
+  data_path: "avazu_dev_pro.parquet"
+  model_path: "ctr_model_pro_two.txt"
+  
+  # Auction mechanism
+  auction:
+    min_bid: 0.01
+    max_bid: 20.0
+    reserve_price: 0.05
+    auction_type: "second_price"  # "first_price" or "second_price"
+  
+  # Customer lifecycle
+  customer:
+    stages:
+      - awareness
+      - interest  
+      - consideration
+      - purchase
+      - retention
+      - churn_risk
+    
+    # Stage transition parameters
+    transition_thresholds:
+      visits_for_interest: 3
+      cart_for_consideration: 1
+      purchases_for_retention: 2
+      days_for_churn_risk: 30
+    
+    # Conversion parameters
+    base_conversion_rate: 0.02
+    stage_multipliers:
+      awareness: 0.5
+      interest: 1.0
+      consideration: 2.0
+      purchase: 0.8
+      retention: 1.2
+      churn_risk: 1.5
+  
+  # Revenue model
+  revenue:
+    base_value: 50.0
+    stage_multipliers:
+      retention: 1.5
+      churn_risk: 2.0
+    
+    # Dynamic pricing
+    dynamic_pricing: true
+    price_elasticity: 0.3
+
+# Agent Configuration
+agents:
+  strategies:
+    aggressive:
+      description: "High bids, broad targeting"
+      base_bid_multiplier: 1.3
+      target_stages: ["all"]
+      risk_tolerance: high
+      
+    conservative:
+      description: "Low bids, precise targeting"
+      base_bid_multiplier: 0.7
+      target_stages: ["interest", "consideration"]
+      risk_tolerance: low
+      
+    retargeting_focused:
+      description: "Specialized in retargeting"
+      base_bid_multiplier: 1.5
+      target_stages: ["consideration", "churn_risk"]
+      risk_tolerance: medium
+      retargeting_bonus: 2.0
+      
+    adaptive:
+      description: "Dynamic strategy based on performance"
+      base_bid_multiplier: 1.0
+      target_stages: ["all"]
+      risk_tolerance: medium
+      adaptation_rate: 0.1
+      
+    brand_awareness:
+      description: "Focus on new customer acquisition"
+      base_bid_multiplier: 1.2
+      target_stages: ["awareness", "interest"]
+      risk_tolerance: medium
+
+# Training Configuration
+training:
+  # General settings
+  algorithm: "PPO"  # "PPO", "DQN", "A3C", "SAC"
+  num_iterations: 1000
+  checkpoint_interval: 50
+  evaluation_interval: 100
+  
+  # PPO specific parameters
+  ppo:
+    learning_rate: 3e-4
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_param: 0.2
+    entropy_coeff: 0.01
+    vf_loss_coeff: 0.5
+    train_batch_size: 8000
+    sgd_minibatch_size: 256
+    num_sgd_iter: 10
+  
+  # DQN specific parameters  
+  dqn:
+    learning_rate: 1e-4
+    gamma: 0.99
+    exploration:
+      initial_epsilon: 1.0
+      final_epsilon: 0.02
+      epsilon_timesteps: 100000
+    target_network_update_freq: 1000
+    train_batch_size: 32
+    buffer_size: 100000
+  
+  # Multi-agent settings
+  multi_agent:
+    policy_mapping:
+      agent_0: "ppo_policy"      # Aggressive
+      agent_1: "dqn_policy"      # Conservative  
+      agent_2: "ppo_policy"      # Adaptive
+      agent_3: "a3c_policy"      # Retargeting-focused
+    
+    shared_policy: false
+    competitive_training: true
+    cooperation_bonus: 0.1
+  
+  # Resource allocation
+  resources:
+    num_gpus: 0
+    num_cpus_per_worker: 1
+    num_rollout_workers: 4
+    
+  # Curriculum learning
+  curriculum:
+    enabled: true
+    stages:
+      - name: "basic_bidding"
+        duration: 200
+        episode_length: 5000
+        complexity: 0.3
+        
+      - name: "customer_lifecycle"
+        duration: 300
+        episode_length: 10000
+        complexity: 0.6
+        
+      - name: "full_retargeting"
+        duration: 500
+        episode_length: 20000
+        complexity: 1.0
+
+# Evaluation Configuration
+evaluation:
+  num_episodes: 100
+  episode_length: 10000
+  
+  # Metrics to track
+  metrics:
+    primary:
+      - roas  # Return on Ad Spend
+      - revenue
+      - conversion_rate
+      - customer_acquisition_cost
+    
+    secondary:
+      - click_through_rate
+      - cost_per_click
+      - lifetime_value
+      - churn_rate
+      - agent_win_rate
+    
+    agent_specific:
+      - individual_roas
+      - bidding_efficiency
+      - strategy_effectiveness
+      - cooperation_score
+  
+  # Performance thresholds
+  thresholds:
+    excellent_roas: 5.0
+    good_roas: 3.0
+    minimum_roas: 1.5
+    
+    target_conversion_rate: 0.05
+    maximum_cac: 25.0  # Customer Acquisition Cost
+
+# Visualization Configuration
+visualization:
+  enabled: true
+  
+  # Chart types
+  charts:
+    - roas_over_time
+    - revenue_vs_spend
+    - agent_performance_comparison
+    - customer_journey_analysis
+    - bidding_behavior_heatmap
+    - conversion_funnel
+  
+  # Style settings
+  style:
+    theme: "seaborn"
+    color_palette: ["#FF6B6B", "#4ECDC4", "#45B7D1", "#96CEB4", "#FFEAA7"]
+    figure_size: [15, 10]
+    dpi: 300
+  
+  # Export formats
+  export:
+    formats: ["png", "pdf", "svg"]
+    save_data: true
+
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  
+  # Log destinations
+  console: true
+  file: true
+  tensorboard: true
+  
+  # Log content
+  include:
+    - training_metrics
+    - agent_actions
+    - environment_state
+    - auction_results
+    - customer_behavior
+  
+  # File settings
+  log_dir: "logs"
+  max_file_size: "100MB"
+  backup_count: 5
+
+# Experiment Configuration
+experiment:
+  name: "multi_agent_retargeting_v1"
+  description: "Initial multi-agent retargeting experiment"
+  
+  # Reproducibility
+  random_seed: 42
+  deterministic: false
+  
+  # Results
+  results_dir: "results"
+  save_checkpoints: true
+  save_replay_buffer: false
+  
+  # Comparison baselines
+  baselines:
+    - name: "random_bidding"
+      description: "Random bid selection"
+    - name: "fixed_bid"  
+      description: "Fixed bid of $1.00"
+    - name: "single_agent_ppo"
+      description: "Single PPO agent baseline"
+
+# Advanced Features
+advanced:
+  # A/B testing
+  ab_testing:
+    enabled: false
+    test_ratio: 0.2
+    variants: ["strategy_a", "strategy_b"]
+  
+  # Real-time adaptation
+  online_learning:
+    enabled: false
+    adaptation_frequency: 1000  # steps
+    learning_rate_decay: 0.99
+  
+  # Market dynamics
+  market_simulation:
+    competitor_agents: 2
+    market_volatility: 0.1
+    seasonal_effects: true
+  
+  # Privacy and ethics
+  privacy:
+    differential_privacy: false
+    epsilon: 1.0
+    customer_anonymization: true
+  
+  # Performance optimization
+  optimization:
+    jit_compilation: false
+    parallel_environments: true
+    memory_optimization: true 
