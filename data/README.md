@@ -15,9 +15,18 @@ Due to file size limitations, the following large datasets are excluded from Git
 
 ## How to Get the Data
 
-1. **Download from original source**: Avazu Click-Through Rate Prediction dataset
-2. **Contact repository owner** for preprocessed files
-3. **Use sample data** in `multiagent/` directory for testing
+### Training Data (train.csv, test.csv)
+Download from Kaggle Avazu CTR Prediction competition:
+- **Link**: https://www.kaggle.com/c/avazu-ctr-prediction/data?select=train.gz
+- Extract the downloaded files to this directory
+
+### Preprocessed Files (avazu_dev_pro.parquet, ctr_model_pro_two.txt)
+Download from Google Drive:
+- **Link**: https://drive.google.com/drive/folders/1ZLSY7XI8Y-wc1i_eRV9z_CjqBGk82E5C?usp=sharing
+- Download and place in this directory
+
+### Alternative Options
+- **Use sample data** in `multiagent/` directory for testing
 
 ## Setup Instructions
 
