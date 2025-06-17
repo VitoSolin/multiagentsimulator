@@ -123,4 +123,3 @@ Saat mempresentasikan proyek ini kepada dosen, fokuslah pada poin-poin berikut u
 4.  **Mekanisme Realistis**: Sorot penggunaan *Second-Price Auction* dan **Aliansi** sebagai upaya untuk memodelkan interaksi dunia nyata yang lebih canggih.
 5.  **Adaptasi & Pembelajaran**: Tunjukkan agen `Adaptive` sebagai contoh *learning agent* sederhana. Jelaskan bagaimana ia menggunakan data ROAS (Return on Ad Spend) untuk menjadi lebih pintar seiring berjalannya waktu.
 
-Dengan pemahaman ini, Anda dan tim Anda siap untuk tidak hanya menjalankan kode, tetapi juga menceritakan kisah menarik di baliknya. Semoga berhasil!
