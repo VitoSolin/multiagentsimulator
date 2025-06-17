@@ -29,7 +29,7 @@ Ini adalah "pemain utama" kita. Ada empat jenis, masing-masing dengan "kepribadi
 -   👨‍aggressive **Aggressive**: Tujuannya adalah memenangkan lelang sebanyak mungkin. Ia menawar dengan berani dan tidak terlalu pemilih terhadap pelanggan.
 -   👩‍⚖️ **Conservative**: Sangat hati-hati dan efisien. Ia hanya akan menawar tinggi jika probabilitas konversi sangat menjanjikan. Agen ini lebih mementingkan profitabilitas (ROAS) daripada jumlah kemenangan.
 -   🎯 **Retargeting-Focused**: Agen spesialis. Misinya adalah menargetkan ulang pelanggan yang sudah menunjukkan minat tinggi (misalnya, pernah memasukkan barang ke keranjang). Ia cenderung pasif sampai target emasnya muncul.
--   🤖 **Adaptive**: Agen paling cerdas. Ia belajar dari kondisi pasar (rata-rata penawaran pesaing) dan performanya sendiri (ROAS) untuk menyesuaikan strateginya secara dinamis.
+-   �� **Adaptive**: Agen oportunis cerdas. Strateginya tidak terpaku pada satu segmen, tetapi fokus utamanya adalah belajar dari performa masa lalunya (`ROAS`) untuk secara dinamis menyesuaikan tingkat agresivitas penawarannya.
 
 ### 2. Pelanggan (Customers)
 
@@ -122,3 +122,5 @@ Saat mempresentasikan proyek ini kepada dosen, fokuslah pada poin-poin berikut u
 3.  **Strategi Heterogen**: Tekankan pentingnya memiliki agen dengan strategi yang berbeda. "Jika semua agen sama, pasar akan membosankan. Perbedaan strategi inilah yang menciptakan dinamika yang menarik."
 4.  **Mekanisme Realistis**: Sorot penggunaan *Second-Price Auction* dan **Aliansi** sebagai upaya untuk memodelkan interaksi dunia nyata yang lebih canggih.
 5.  **Adaptasi & Pembelajaran**: Tunjukkan agen `Adaptive` sebagai contoh *learning agent* sederhana. Jelaskan bagaimana ia menggunakan data ROAS (Return on Ad Spend) untuk menjadi lebih pintar seiring berjalannya waktu.
+
+Dengan pemahaman ini, Anda dan tim Anda siap untuk tidak hanya menjalankan kode, tetapi juga menceritakan kisah menarik di baliknya. Semoga berhasil!
