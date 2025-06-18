@@ -109,17 +109,3 @@ Setelah simulasi selesai dijalankan, program akan secara otomatis membuat dan me
 1.  **Distribusi Kemenangan Lelang per Episode**: Grafik ini menunjukkan agen mana yang paling sering memenangkan lelang di setiap episode. Ini membantu kita melihat dominasi pasar dan bagaimana strategi bersaing dari waktu ke waktu.
 2.  **Performa Finansial Global per Episode**: Grafik ini menampilkan total pendapatan dan pengeluaran dari semua agen, serta metrik `ROAS` (Return on Ad Spend) secara keseluruhan. Ini memberikan gambaran tentang kesehatan "pasar" secara umum.
 3.  **Sisa Anggaran Agen di Akhir Episode**: Grafik ini melacak sisa anggaran dari setiap agen setelah setiap episode selesai. Dari sini, kita bisa melihat agen mana yang paling efisien dalam membelanjakan anggarannya.
-
-## 🎤 Poin Kunci untuk Presentasi
-
-Saat mempresentasikan proyek ini kepada dosen, fokuslah pada poin-poin berikut untuk menunjukkan pemahaman Anda:
-
-1.  **Jelaskan ABM**: Mulailah dengan menjelaskan bahwa ini adalah contoh praktis dari *Agent-Based Modeling*.
-2.  **Tunjukkan Perilaku Emergent**:
-    -   Tunjukkan hasil output dari beberapa episode.
-    -   Jelaskan bagaimana dinamika pasar (siapa yang menang/kalah) **muncul secara alami** dari interaksi agen, bukan karena diprogram secara eksplisit.
-    -   Ceritakan evolusi simulasi: "Awalnya, agen `retargeting` selalu kalah. Kami menyadari ini karena lingkungan tidak menciptakan cukup pelanggan `CONSIDERATION`. Setelah kami menambahkan mekanisme 'tambah ke keranjang', agen `retargeting` menjadi pemain yang kompetitif. Ini menunjukkan betapa pentingnya interaksi agen-lingkungan."
-3.  **Strategi Heterogen**: Tekankan pentingnya memiliki agen dengan strategi yang berbeda. "Jika semua agen sama, pasar akan membosankan. Perbedaan strategi inilah yang menciptakan dinamika yang menarik."
-4.  **Mekanisme Realistis**: Sorot penggunaan *Second-Price Auction* dan **Aliansi** sebagai upaya untuk memodelkan interaksi dunia nyata yang lebih canggih.
-5.  **Adaptasi & Pembelajaran**: Tunjukkan agen `Adaptive` sebagai contoh *learning agent* sederhana. Jelaskan bagaimana ia menggunakan data ROAS (Return on Ad Spend) untuk menjadi lebih pintar seiring berjalannya waktu.
-
